@@ -14,7 +14,7 @@ test:
           JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
           JUNIT_REPORT_NAME: test-results.xml
 
-reporters: ['junit'],
+reporters: ['junit']
 
 junitReporter: {
   outputDir: process.env.JUNIT_REPORT_PATH,
