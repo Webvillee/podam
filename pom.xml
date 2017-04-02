@@ -463,7 +463,7 @@
 		</repository>
 		<site>
 			<id>github-project-site</id>
-			<url>gitsite:git@github.com/devopsfolks/podam.git</url>
+			<url>gitsite:git@github.com/atuljava74/podam.git</url>
 		</site>
 	</distributionManagement>
 
