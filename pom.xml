@@ -21,7 +21,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<github.global.server>github</github.global.server>
-	</properties>
+    </properties>
 
 	<url>http://devopsfolks.github.io/podam/</url>
 	<licenses>
@@ -136,26 +136,26 @@
 				<role>Developer</role>
 			</roles>
 		</contributor>
-        <contributor>
-            <name>Francoise-Xavier Bonnet</name>
-            <email>francoise.bonnet@gmail.com</email>
-            <roles>
-                <role>Developer</role>
-            </roles>
-        </contributor>
+		<contributor>
+			<name>Francoise-Xavier Bonnet</name>
+			<email>francoise.bonnet@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</contributor>
 		<contributor>
 			<name>maxdidato</name>
 			<roles>
 				<role>Developer</role>
 			</roles>
 		</contributor>
-                <contributor>
-                        <name>Andrey Artyukhov</name>
+		<contributor>
+			<name>Andrey Artyukhov</name>
 			<email>andrey.artyukhov@constant.obninsk.ru</email>
-                        <roles>
-                                <role>Developer</role>
-                        </roles>
-                </contributor>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</contributor>
 	</contributors>
 
 
@@ -282,7 +282,7 @@
 						<descriptor>src/main/assembly/bin.xml</descriptor>
 					</descriptors>
 				</configuration>
-			</plugin>					
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
@@ -362,6 +362,17 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+			</plugin>
+
+
+
 		</plugins>
 	</build>
 	<reporting>
@@ -412,6 +423,15 @@
 				<artifactId>serenity-maven-plugin</artifactId>
 				<version>${serenity.version}</version>
 			</plugin>
+			
+			<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+      <additionalparam>-Xdoclint:none</additionalparam>
+    </configuration>
+  </plugin>
+			
 		</plugins>
 	</reporting>
 	<distributionManagement>
@@ -523,18 +543,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>doclint-java8</id>
-			<activation>
-				<jdk>[1.8,)</jdk>
-			</activation>
-			<properties>
-				<javadoc.opts>-Xdoclint:all</javadoc.opts>
-			</properties>
-		</profile>
-	</profiles>
 
 
 </project>
