@@ -2,21 +2,13 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    
+  
+   environment:
+          JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
+          JUNIT_REPORT_NAME: test-results.xml  
 
 machine:
   environment:
     _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
-    
-test:
-   environment:
-          JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-          JUNIT_REPORT_NAME: test-results.xml
-
-reporters: ['junit']
-
-junitReporter: {
-  outputDir: process.env.JUNIT_REPORT_PATH,
-  outputFile: process.env.JUNIT_REPORT_NAME,
-  useBrowserName: false
-}
     
