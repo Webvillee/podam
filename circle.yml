@@ -1,13 +1,13 @@
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+     
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     
   
-   environment:
-          JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-          JUNIT_REPORT_NAME: test-results.xml  
-
 machine:
   environment:
     _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
